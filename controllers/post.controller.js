@@ -7,7 +7,7 @@ export const PostController = {
         try {
             const { title, body } = request.body
             if (!title || !body) {
-                return response.status(400).json({ error: "Ta faltando coisa ai retardado!" })
+                return response.status(400).json({ error: "Ta faltando mais informação." })
             }
             await PostRepository.postCreate(title, body);
             return response.status(200).json({ message: "Post criado com sucesso!" })
@@ -36,7 +36,7 @@ export const PostController = {
         const { title, body } = request.body
         const { id } = request.params
         if (!title || !body) {
-            return response.status(400).json({ error: "Ta faltando coisa ai retardado!" })
+            return response.status(400).json({ error: "Ta faltando mais informação." })
         }
         
         await PostRepository.postUpdate(id, title, body);
